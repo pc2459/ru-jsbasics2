@@ -1,4 +1,4 @@
-// UNIT TESTING
+// TESTING
 
 var assert = function(a,b) {
    if(a === b) {
@@ -81,9 +81,7 @@ var letterCount = function(s){
     // letters than the word with the current most repeated
     // letters; update the global variables if so
     for(var key in dict){
-
       if (dict[key] > mostLetterRepeats){
-
         mostLetterRepeats = dict[key];
         mostRepeated = str[i]; 
       }
@@ -97,3 +95,5 @@ var letterCount = function(s){
 assert(letterCount("Today, is the greatest day ever!"),"greatest");
 assert(letterCount("aaa eee fff ggg"),"aaa");
 assert(letterCount("aaa eeee fff ggg"),"eeee");
+assert(letterCount(""),-1);
+assert(letterCount("No repts"),-1);
