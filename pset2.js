@@ -48,3 +48,52 @@ assert(swapCase("Hello!!"),"hELLO!!");
 assert(swapCase("1 2 BUCKLE my SHOE!"),"1 2 buckle MY shoe!");
 
 ////////////////////////////////////////////////////////
+
+var letterCount = function(s){
+  var mostRepeated = -1;
+  var mostLetterRepeats  = 1;
+
+  // Split the string into an array of words
+  var str = s.split(" ");
+
+  // Loop over each word in the string
+  for (var i = 0; i < str.length; i++){
+
+    // Create a dictionary of its letters
+    dict = {};
+
+    // Loop over each letter in a word
+    for (var j = 0; j < str[i].length; j++){
+
+      
+      if (!(str[i][j] in dict)){
+
+        dict[str[i][j]] = 1;
+        // console.log(dict);
+      }
+      else{
+        dict[str[i][j]] += 1;
+      }
+      
+    }
+
+    // Check dictionary to see if it has more repeated
+    // letters than the word with the current most repeated
+    // letters; update the global variables if so
+    for(var key in dict){
+
+      if (dict[key] > mostLetterRepeats){
+
+        mostLetterRepeats = dict[key];
+        mostRepeated = str[i]; 
+      }
+    }
+  }
+
+  return mostRepeated;
+
+};
+
+assert(letterCount("Today, is the greatest day ever!"),"greatest");
+assert(letterCount("aaa eee fff ggg"),"aaa");
+assert(letterCount("aaa eeee fff ggg"),"eeee");
