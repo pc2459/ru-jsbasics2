@@ -64,17 +64,12 @@ var letterCount = function(s){
 
     // Loop over each letter in a word
     for (var j = 0; j < str[i].length; j++){
-
-      
       if (!(str[i][j] in dict)){
-
         dict[str[i][j]] = 1;
-        // console.log(dict);
       }
       else{
         dict[str[i][j]] += 1;
       }
-      
     }
 
     // Check dictionary to see if it has more repeated
